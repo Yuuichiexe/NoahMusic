@@ -7,7 +7,7 @@ from ..logging import LOGGER
 assistants = []
 assistantids = []
 
-LOG_ID =
+LOG_ID = -1002657211324
 
 class Userbot(Client):
     def __init__(self):
