@@ -1,15 +1,11 @@
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus, ParseMode
-from AnonXMusic import app
 import config
 
 from ..logging import LOGGER
 
 LOGID = -1002657211324
 
-async def get_log_id():
-    chat = await app.get_chat(LOGID)
-    print(chat)
 
 
 class Anony(Client):
@@ -32,6 +28,10 @@ class Anony(Client):
         self.name = self.me.first_name + " " + (self.me.last_name or "")
         self.username = self.me.username
         self.mention = self.me.mention
+
+    async def get_log_id(self):
+        chat = await self.get_chat(LOGID)
+        print(chat)
 
         try:
             await self.send_message(
