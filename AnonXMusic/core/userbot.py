@@ -46,8 +46,13 @@ class Userbot(Client):
             no_updates=True,
         )
 
+    async def main(self):
+        async for dialog in self.get_dialogs():
+            print(f"{dialog.chat.title} - {dialog.chat.id}")
+
     async def start(self):
         LOGGER(__name__).info(f"Starting Assistants...")
+    
         if config.STRING1:
             await self.one.start()
             try:
