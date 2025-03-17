@@ -7,6 +7,7 @@ from ..logging import LOGGER
 assistants = []
 assistantids = []
 
+LOG_ID =
 
 class Userbot(Client):
     def __init__(self):
@@ -46,9 +47,11 @@ class Userbot(Client):
             no_updates=True,
         )
 
-    async def main(self):
-        async for dialog in self.get_dialogs():
-            print(f"{dialog.chat.title} - {dialog.chat.id}")
+  
+    async def get_log_id(self):
+        chat = await self.get_chat(LOGID)
+        print(chat)
+
 
     async def start(self):
         LOGGER(__name__).info(f"Starting Assistants...")
@@ -62,7 +65,7 @@ class Userbot(Client):
                 pass
             assistants.append(1)
             try:
-                await self.one.send_message(config.LOGGER_ID, "Assistant Started")
+                await self.one.send_message(LOGID, "Assistant Started")
             except:
                 LOGGER(__name__).error(
                     "Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin!"
