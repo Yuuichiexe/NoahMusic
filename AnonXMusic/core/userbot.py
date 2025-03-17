@@ -64,11 +64,10 @@ class Userbot(Client):
                 pass
             assistants.append(1)
             try:
-                await self.one.send_message(LOG_ID, "Assistant Started")
-            except:
-                LOGGER(__name__).error(
-                    "Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin!"
-                )
+                me = await self.one.get_me()
+                LOGGER(__name__).info(f"Assistant 1 Logged in as {me.first_name} (@{me.username}) - ID: {me.id}")
+            except Exception as e:
+                LOGGER(__name__).error(f"Assistant 1 failed to log in: {e}")
                 exit()
             self.one.id = self.one.me.id
             self.one.name = self.one.me.mention
