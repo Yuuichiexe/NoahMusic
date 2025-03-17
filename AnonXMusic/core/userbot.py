@@ -49,7 +49,7 @@ class Userbot(Client):
 
   
     async def get_log_id(self):
-        chat = await self.get_chat(LOGID)
+        chat = await self.get_chat(LOG_ID)
         print(chat)
 
 
