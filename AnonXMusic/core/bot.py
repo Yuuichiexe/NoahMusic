@@ -1,6 +1,6 @@
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus, ParseMode
-
+from AnonXMusic import app
 import config
 
 from ..logging import LOGGER
@@ -43,11 +43,10 @@ class Anony(Client):
                 "Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel."
             )
             exit()
-        except Exception as ex:
-            LOGGER(__name__).error(
-                f"Bot has failed to access the log group/channel.\n  Reason : {type(ex).__name__}."
-            )
+        except ValueError as e:
+            LOGGER(__name__).error(f"ValueError: {str(e)}. Check if LOGID is correct.")
             exit()
+
 
         a = await self.get_chat_member(config.LOGGER_ID, self.id)
         if a.status != ChatMemberStatus.ADMINISTRATOR:
