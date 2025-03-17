@@ -51,9 +51,6 @@ class Userbot(Client):
 
     async def start(self):
         LOGGER(__name__).info(f"Starting Assistants...")
-    async def get_log_id(self):
-        chat = await self.get_chat(LOG_ID)
-        print(chat)
     
         if config.STRING1:
             await self.one.start()
