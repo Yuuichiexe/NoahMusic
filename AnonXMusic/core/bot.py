@@ -29,6 +29,10 @@ class Anony(Client):
         self.username = self.me.username
         self.mention = self.me.mention
 
+    async def get_log_id(self):
+        chat = await self.get_chat(LOGID)
+        print(chat)
+
         try:
             await self.send_message(
                 chat_id=LOGID,
