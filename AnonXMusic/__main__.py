@@ -45,7 +45,6 @@ async def init():
         LOGGER("AnonXMusic").error(
             "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
         )
-        exit()
     except:
         pass
     await Anony.decorators()
